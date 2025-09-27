@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Button</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111827;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .btn{
+            position: relative;
+            padding: 17px 50px;
+            border-radius: 50px;
+            border: 2px solid #06b6d4;
+            background-color: transparent;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 1s linear;
+        }
+        .btn:hover{
+            border-color: transparent;
+        }
+        .btn::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg,#06b6d4,#3b82f6,#9333ea);
+            z-index: -1;
+            border-radius: 50px;
+            transition: width 1s linear;
+        }
+        .btn:hover::before{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Hover Me</button>
+    
+</body>
+</html>
