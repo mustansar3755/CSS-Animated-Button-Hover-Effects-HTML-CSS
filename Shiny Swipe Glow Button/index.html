@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shiny Swipe Glow Button</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #0f2027;
+        background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+        font-family: "Poppins", sans-serif;
+      }
+      .btn-container {
+        text-align: center;
+      }
+      .animated-btn {
+        position: relative;
+        padding: 14px 40px;
+        font-size: 18px;
+        background: #ff6600;
+        color: white;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+      .animated-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: all 0.5s ease;
+      }
+      .animated-btn:hover::before {
+        left: 100%;
+      }
+      .animated-btn:hover{
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ff6600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn-container">
+      <button class="animated-btn">Hover Me</button>
+    </div>
+  </body>
+</html>
