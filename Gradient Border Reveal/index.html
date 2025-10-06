@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Border Reveal</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a2a6c;
+            font-family: "Poppins",sans-serif;
+        }
+        .gradient-btn{
+            position: relative;
+            padding: 14px 45px;
+            font-size: 18px;
+            background: #0f2027;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .gradient-btn::before{
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50px;
+            background: linear-gradient(45deg,#ff0066,#ffcc00,#00ffff);
+            background-size: 300% 300%;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+        .gradient-btn::after{
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: #0f2027;
+            border-radius: 50px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        .gradient-btn:hover::after{
+            background: rgba(15, 32, 39, 0.7);
+        }
+        .gradient-btn:hover{
+            transform: scale(1.05);
+            text-shadow: 0 0 10px #fff;
+        }
+        /* Animation */
+        @keyframes borderGlow {
+            0%{
+                background-position: 0% 50%;
+            }
+            50%{
+                background-position: 100% 50%;
+            }
+            100%{
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="gradient-btn">
+        Hover Me
+    </button>
+</body>
+</html>
