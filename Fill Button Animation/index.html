@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill BG Animation Button</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            display: inline-block;
+            width: 8em;
+            height: 2.5em;
+            line-height: 2.5em;
+            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 800;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border: 2px solid darkcyan;
+            border-radius: 6px;
+            z-index: 1;
+            color: darkcyan;
+            transition: all 0.7s;
+        }
+        button:hover{
+            color: white;
+            transform: scale(1.06);
+        }
+        button::before{
+            content: "";
+            position: absolute;
+            background-color: darkcyan;
+            height: 150px;
+            width: 200px;
+            border-radius: 50%;
+            top: 100%;
+            left: 100%;
+            z-index: -1;
+            transition: all 0.7s;
+        }
+        button:hover::before{
+            top: -35px;
+            left: -30px;
+        }
+    </style>
+</head>
+<body>
+    <button>Fill Me</button>
+    
+</body>
+</html>
