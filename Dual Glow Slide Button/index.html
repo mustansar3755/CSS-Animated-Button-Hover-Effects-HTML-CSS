@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Glow Slide Button</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #212121;
+        }
+        button{
+            position: relative;
+            padding: 0.6em 2em;
+            font-size: 1.5em;
+            font-weight: 700;
+            background-color: transparent;
+            border: 2px solid magenta;
+            color: magenta;
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        button:hover{
+            color: #212121;
+        }
+        button p{
+            z-index: 1;
+        }
+        button::before, button::after{
+            content: "";
+            position: absolute;
+            width: 9em;
+            background: hsl(300, 100%, 50%);
+            border-radius: 50%;
+            opacity: 50%;
+            aspect-ratio: 1;
+            transition: all 0.5s;
+        }
+        button::before{
+            left: 0;
+            transform: translateX(-8em);
+        }
+        button::after{
+            right: 0;
+            transform: translateX(8em);
+        }
+        button:hover::before{
+            transform: translateX(-1em);
+        }
+        button:hover::after{
+            transform: translateX(1em);
+        }
+    </style>
+</head>
+<body>
+    <button>
+        <p>Button</p>
+    </button>
+</body>
+</html>
